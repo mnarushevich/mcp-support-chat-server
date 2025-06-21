@@ -1,0 +1,48 @@
+{
+    "name": "mnarushevich/mcp-support-chat-server",
+    "description": "PHP MCP Server for Chat Support Service",
+    "type": "project",
+    "require": {
+        "php": ">=8.4",
+        "ext-json": "*",
+        "illuminate/database": "^12.19",
+        "php-mcp/server": "^2.3",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.24",
+        "pestphp/pest": "^3.8",
+        "pestphp/pest-plugin-faker": "^3.0",
+        "pestphp/pest-plugin-type-coverage": "^3.5",
+        "rector/rector": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "rector": "rector",
+        "test:rector": "rector --dry-run",
+        "test": [
+            "@test:rector",
+            "@test:pest"
+        ],
+        "test:pest": "pest",
+        "test:pest:coverage": "pest --coverage"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
