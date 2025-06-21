@@ -118,21 +118,60 @@ The server can be configured through environment variables:
 
 ```
 ├── src/
-│   ├── Database/
-│   │   ├── DatabaseConnection.php
-│   │   └── Repository/
+│   ├── Config/
+│   │   └── Environment.php
+│   ├── Core/
+│   │   ├── Container.php
+│   │   └── ErrorHandler.php
+│   ├── Exceptions/
+│   │   └── SystemExitException.php
+│   ├── Factories/
+│   │   ├── Builders/
+│   │   │   ├── ChatFactoryBuilder.php
+│   │   │   └── UserFactoryBuilder.php
+│   │   ├── ChatFactory.php
+│   │   └── UserFactory.php
 │   ├── Mcp/
-│   │   ├── Tools/
+│   │   ├── McpConfig.php
+│   │   ├── McpServer.php
+│   │   ├── Prompts/
+│   │   │   └── SupportPrompts.php
 │   │   ├── Resources/
-│   │   └── Prompts/
-│   └── Config/
+│   │   │   ├── ChatResources.php
+│   │   │   └── UserResources.php
+│   │   └── Tools/
+│   │       ├── ChatTools.php
+│   │       └── UserTools.php
+│   └── Models/
+│       ├── Chat.php
+│       └── User.php
 ├── tests/
+│   ├── Integration/
+│   │   ├── Prompts/
+│   │   │   └── SupportPromptsTest.php
+│   │   ├── Resources/
+│   │   │   ├── ChatResourcesTest.php
+│   │   │   └── UserResourcesTest.php
+│   │   └── Tools/
+│   │       ├── ChatToolsTest.php
+│   │       └── UserToolsTest.php
 │   ├── Unit/
-│   └── Integration/
+│   │   ├── ErrorHandlerTest.php
+│   │   └── McpServerTest.php
+│   ├── Pest.php
+│   └── TestCase.php
 ├── database/
 │   └── schema.sql
-├── server.php
-└── composer.json
+├── docker/
+│   └── mysql/
+│       └── create-testing-database.sh
+├── bootstrap.php
+├── composer.json
+├── composer.lock
+├── docker-compose.yml
+├── phpunit.xml
+├── rector.php
+└── server.php
 ```
 
 ### Adding New MCP Tools
